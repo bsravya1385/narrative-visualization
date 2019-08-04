@@ -25,17 +25,34 @@
             pointer-events: none;
             background-color: white;
         }
+        .buttons-container {
+            width: 520px;
+            margin-bottom: 15px;
+         }
+        .button {
+            float: left;
+            margin-left: 10px;
+            font-weight: lighter;
+            cursor: pointer;
+        }
+
+
          </style>
     </head>
     <body>
         <div id="vis-container"></div>
         <h1>Narrative Visualization</h1>
-        <input  type='radio' id="all" name="mode" checked>All</input>
-        <input  type='radio' id="Comedy" name="mode">Comedy</input>
-        <input  type='radio' id="Action" name="mode">Action</input>
-        <input  type='radio' id="Fantasy" name="mode">Fantasy</input>
-        <input  type='radio' id="Drama" name="mode">Drama</input>
-        <input  type='radio' id="Family" name="mode">Family</input>
+        
+    var buttonSelections = [all,Comedy,Action,Fantasy,Drama,Family];
+    body.append("h2")
+        .text("Revenue and budget distribution of movies by category");
+    body.append("div")
+        .attr("class", "buttons-container")
+        .selectAll("div").data(buttonSelections)
+        .enter().append("div")
+        .text(function(d) { return d; });
+        .attr("class", "button");
+
 
 
 
@@ -44,12 +61,8 @@
         <!-- Optionally reference your vis JS file here, or define in a script tag -->
         <script type="text/javascript">
            console.log('step1###')
-            //d3.csv("movie.csv", function loadCallback(error, data) {
-              
-                //data.forEach(function(d) { // convert strings to numbers
-                    //d.revenue = +d.revenue;
-                    //d.budget = +d.budget;
-                //});
+
+            // convert strings to numbers
                    d3.csv("movie.csv").then(function(data) {
                     data.forEach(function(d) {
                         d.revenue = +d.revenue;
