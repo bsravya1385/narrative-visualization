@@ -2,10 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>d3 Scatter Plot</title>
+        <title>Narrative-vis-movie</title>
         <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
-        <!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
-        <!-- Styles for our vis  -->
         <style>
         body {
             font: 15px sans-serif;
@@ -35,15 +33,17 @@
         <input  type='radio' id="all" name="mode" checked>All</input>
         <input  type='radio' id="Comedy" name="mode">Comedy</input>
         <input  type='radio' id="Action" name="mode">Action</input>
-        <input  type='radio' id="Fantasy" name="mode">Comedy</input>
+        <input  type='radio' id="Fantasy" name="mode">Fantasy</input>
+        <input  type='radio' id="Drama" name="mode">Drama</input>
+        <input  type='radio' id="Family" name="mode">Family</input>
+
+
 
      <!-- <input type="radio" name="genres_name" id="radio-comedy" value="Comedy" onClick="window.location.reload()" /> -->
      <!-- <input type="radio" name="genres_name" id="radio-action" value="Action" onClick="window.location.reload()" /> -->
         <!-- Optionally reference your vis JS file here, or define in a script tag -->
-        <!-- <script type="text/javascript" src="js/my-vis.js"></script> -->
         <script type="text/javascript">
            console.log('step1###')
-           // console.log(data)
             //d3.csv("movie.csv", function loadCallback(error, data) {
               
                 //data.forEach(function(d) { // convert strings to numbers
@@ -59,12 +59,7 @@
                     makeVis(data);
 });
 
-                          //  console.log(data)
-
-               // makeVis(data);
-            //});
             console.log('step2')
-            //console.log(data)
 
           var makeVis = function(data) {
               // Common pattern for defining vis size and margins
