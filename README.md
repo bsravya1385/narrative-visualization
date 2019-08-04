@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Narrative Visualization
 
 You can use the [editor on GitHub](https://github.com/bsravya1385/narrative-visualization/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
