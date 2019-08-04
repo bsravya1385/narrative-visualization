@@ -43,18 +43,22 @@
         <script type="text/javascript">
            console.log('step1###')
            // console.log(data)
-            d3.csv("movie.csv", function loadCallback(error, data) {
+            #d3.csv("movie.csv", function loadCallback(error, data) {
               
                 //data.forEach(function(d) { // convert strings to numbers
                     //d.revenue = +d.revenue;
                     //d.budget = +d.budget;
                 //});
-                            console.log(data)
+           d3.csv("movie.csv",(function(data) {
+  console.log(data);
+               makeVis(data);
+});
+                          #  console.log(data)
 
-                makeVis(data);
-            });
+               # makeVis(data);
+            #});
             console.log('step2')
-            console.log(data)
+            #console.log(data)
 
           var makeVis = function(data) {
               // Common pattern for defining vis size and margins
