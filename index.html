@@ -45,7 +45,7 @@
            // console.log(data)
             d3.csv('movie.csv', function loadCallback(error, data) {
               
-                data.quotesArray.forEach(function(d) { // convert strings to numbers
+                data.keys(data).forEach(function(d) { // convert strings to numbers
                     d.revenue = +d.revenue;
                     d.budget = +d.budget;
                 });
