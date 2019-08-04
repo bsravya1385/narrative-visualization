@@ -45,10 +45,10 @@
            // console.log(data)
             d3.csv('movie.csv', function loadCallback(error, data) {
               
-                data.forEach(function(d) { // convert strings to numbers
-                    d.revenue = +d.revenue;
-                    d.budget = +d.budget;
-                });
+                //data.forEach(function(d) { // convert strings to numbers
+                    //d.revenue = +d.revenue;
+                    //d.budget = +d.budget;
+                //});
                 makeVis(data);
             });
             console.log('step2')
