@@ -77,12 +77,8 @@
                             d3.max(data, function(d) { return d.revenue; }) + 1 ])
                   .range([height, 0]); // flip order because y-axis origin is upper LEFT
               // Define our axes
-              var xAxis = d3.svg.axis()
-                  .scale(xScale)
-                  .orient('bottom');
-              var yAxis = d3.svg.axis()
-                  .scale(yScale)
-                  .orient('left');
+              var xAxis = d3.axisBottom(xScale);
+              var yAxis = d3.axisLeft(yScale);
               // Add x-axis to the canvas
               canvas.append("g")
                   .attr("class", "x axis")
