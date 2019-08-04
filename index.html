@@ -43,7 +43,7 @@
         <script type="text/javascript">
            console.log('step1###')
            // console.log(data)
-            d3.csv('https://github.com/lilsummer/d3projXG/tree/master/input/movie.csv', function loadCallback(error, data) {
+            d3.csv('movie.csv', function loadCallback(error, data) {
               
                 data.forEach(function(d) { // convert strings to numbers
                     d.revenue = +d.revenue;
