@@ -127,7 +127,8 @@
               // Add data points!
               canvas.selectAll(".dot")
                 .data(data)
-              .enter().append("circle")
+                .enter()
+                .append("circle")
                 .attr("class", "dot")
                 .attr("r", 5.5) // radius size, could map to another data dimension
                 .attr("cx", function(d) { return xScale( d.budget ); })     // x position
