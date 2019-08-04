@@ -50,11 +50,12 @@
                     //d.budget = +d.budget;
                 //});
                    d3.csv("movie.csv").then(function(data) {
-  data.forEach(function(d) {
-    d.revenue = +d.revenue;
-    d.budget = +d.budget;
-  });
-  console.log(data[0]);
+                    data.forEach(function(d) {
+                        d.revenue = +d.revenue;
+                        d.budget = +d.budget;
+                        });
+                    console.log(data);
+                    makeVis(data);
 });
 
                           //  console.log(data)
