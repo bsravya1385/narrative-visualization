@@ -60,17 +60,25 @@
         <script type="text/javascript">
            console.log('step1###')
 
-            // convert strings to numbers
-                   d3.csv("movie.csv").then(function(data) {
-                    data.forEach(function(d) {
-                        d.revenue = +d.revenue;
-                        d.budget = +d.budget;
-                        });
-                    console.log(data);
-                    makeVis(data);
-});
+       // convert strings to numbers
+       d3.csv("movie.csv").then(function(data) {
+          data.forEach(function(d) {
+            d.revenue = +d.revenue;
+            d.budget = +d.budget;
+	  });
+          console.log(data);
+         makeVis(data);
+	});
 
             console.log('step2')
+function filterdata(data, location, dim){
+	    	var result = [];
+  		data.forEach( function(val, idx, arr){
+    		if(val.name == location){
+     		 result.push(val[dim])}
+  		})
+		return result[0];
+	      }
 
           var makeVis = function(data) {
               // Common pattern for defining vis size and margins
@@ -83,15 +91,15 @@
                   .attr("height", height + margin.top  + margin.bottom)
                 .append("g")
                   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		  
+              
               // Define our scales
               var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
               var xScale = d3.scaleLinear()
                   .domain([ d3.min(data, function(d) { return d.budget; }) - 1,
                             d3.max(data, function(d) { return d.budget; }) + 1 ])
                   .range([0, width]);
-              // var xScale = d3.scaleLog()
-              //     .domain(10, 10000000000)
-              //     .range([0, width]);
+             
               var yScale = d3.scaleLinear()
                   .domain([ d3.min(data, function(d) { return d.revenue; }) - 1,
                             d3.max(data, function(d) { return d.revenue; }) + 1 ])
@@ -99,6 +107,7 @@
               // Define our axes
               var xAxis = d3.axisBottom(xScale);
               var yAxis = d3.axisLeft(yScale);
+		  
               // Add x-axis to the canvas
               canvas.append("g")
                   .attr("class", "x axis")
@@ -138,6 +147,7 @@
                       .duration(200) // ms
                       .style("opacity", .9) // started as 0!
               };
+		 
               // tooltip mouseout event handler
               var tipMouseout = function(d) {
                   tooltip.transition()
