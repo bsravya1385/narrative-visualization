@@ -96,9 +96,8 @@ function filterdata(data, location, dim){
               // Define our scales
               var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
               var xScale = d3.scaleLinear()
-	            .domain([0,0])
-                  //.domain([ d3.min(data, function(d) { return d.budget; }) - 1,
-                      //      d3.max(data, function(d) { return d.budget; }) + 1 ])
+	            .domain([ d3.min(data, function(d) { return d.budget; }) - 1,
+                            d3.max(data, function(d) { return d.budget; }) + 1 ])
                   .range([0, width]);
              
               var yScale = d3.scaleLinear()
@@ -169,21 +168,7 @@ function filterdata(data, location, dim){
                 .on("mouseover", tipMouseover)
                 .on("mouseout", tipMouseout)
                 ;
-	      // new X axis
-     	     xScale.domain([ d3.min(data, function(d) { return d.budget; }) - 1,
-                            d3.max(data, function(d) { return d.budget; }) + 1 ])
-            svg.select(".x axis")
-    		.transition()
-    		.duration(2000)
-    		.attr("opacity", "1")
-    		.call(d3.axisBottom(xScale));
-	   
-            svg.selectAll("circle")
-    		.transition()
-    		.delay(function(d,i){return(i*3)})
-    		.duration(2000)
-    		.attr("cx", function (d) { return x(d.budget); } )
-    		.attr("cy", function (d) { return y(d.revenue); } ;
+	      
     		};
         </script>
     </body>
