@@ -42,17 +42,15 @@
     <body>
         <div id="vis-container"></div>
         <h1>Narrative Visualization</h1>
-        
-    var buttonSelections = [all,Comedy,Action,Fantasy,Drama,Family];
-    body.append("h2")
-        .text("Revenue and budget distribution of movies by category");
-    body.append("div")
-        .attr("class", "buttons-container")
-        .selectAll("div").data(buttonSelections)
-        .enter().append("div")
-        .text(function(d) { return d; });
-        .attr("class", "button");
+       <form id="dimensions">
+       <input type='radio' id="all" name="mode" checked>All</input>
+       <input type='radio' id="Comedy" name="mode">Comedy</input>
+	   <input type='radio' id="Action" name="mode">Action</input>
+	   <input type='radio' id="Fantasy" name="mode">Fantasy</input>
+	   <input type='radio' id="Drama" name="mode">Drama</input>
+	   <input type='radio' id="Family" name="mode">Family</input>
 
+        </form>
 
 
 
@@ -108,8 +106,8 @@
                   .call(xAxis)
                 .append("text")
                   .attr("class", "label")
-                  .attr("x", width) // x-offset from the xAxis, move label all the way to the right
-                  .attr("y", -6)    // y-offset from the xAxis, moves text UPWARD!
+                  //.attr("x", width) // x-offset from the xAxis, move label all the way to the right
+                  //.attr("y", -6)    // y-offset from the xAxis, moves text UPWARD!
                   .style("text-anchor", "end") // right-justify text
                   .text("budget");
               // Add y-axis to the canvas
@@ -119,7 +117,7 @@
                 .append("text")
                   .attr("class", "label")
                   .attr("transform", "rotate(-90)") // although axis is rotated, text is not
-                  .attr("y", 15) // y-offset from yAxis, moves text to the RIGHT because it's rotated, and positive y is DOWN
+                  //.attr("y", 15) // y-offset from yAxis, moves text to the RIGHT because it's rotated, and positive y is DOWN
                   .style("text-anchor", "end")
                   .text("revenue");
               // Add the tooltip container to the vis container
