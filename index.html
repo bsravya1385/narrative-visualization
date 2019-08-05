@@ -156,7 +156,7 @@ function filterdata(data, location, dim){
               };
               // Add data points!
               canvas.selectAll(".dot")
-                .data(data.filter(function(d){return d.genres_name == category;}))
+                .data(data.filter(function(d){return d.genres_name != NULL;}))
                 .enter()
                 .append("circle")
                 .attr("class", "dot")
