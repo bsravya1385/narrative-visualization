@@ -67,7 +67,7 @@
             d.budget = +d.budget;
 	  });
           console.log(data);
-         makeVis(data,"All");
+         makeVis(data,"Comedy");
 	});
 
             console.log('step2')
@@ -168,9 +168,7 @@ function filterdata(data, location, dim){
                 .on("mouseover", tipMouseover)
                 .on("mouseout", tipMouseout)
                 ;
-	    document.getElementById("all").addEventListener('click', function(){
-		makeVis(d, "All")
-	});
+	    
 		  document.getElementById("Comedy").addEventListener('click', function(){
 		makeVis(d, "Comedy")
 	});
