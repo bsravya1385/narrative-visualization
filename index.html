@@ -67,7 +67,7 @@
             d.budget = +d.budget;
 	  });
           console.log(data);
-         makeVis(data);
+         makeVis(data,"All");
 	});
 
             console.log('step2')
@@ -80,7 +80,7 @@ function filterdata(data, location, dim){
 		return result[0];
 	      }
 
-          var makeVis = function(data) {
+          var makeVis = function(data,category) {
               // Common pattern for defining vis size and margins
               var margin = { top: 20, right: 50, bottom: 30, left: 40 },
                   width  = 960 - margin.left - margin.right,
@@ -156,7 +156,7 @@ function filterdata(data, location, dim){
               };
               // Add data points!
               canvas.selectAll(".dot")
-                .data(data)
+                .data(data.filter(function(d){return d.genre_name == category;}))
                 .enter()
                 .append("circle")
                 .attr("class", "dot")
@@ -168,6 +168,24 @@ function filterdata(data, location, dim){
                 .on("mouseover", tipMouseover)
                 .on("mouseout", tipMouseout)
                 ;
+	    document.getElementById("all").addEventListener('click', function(){
+		makeVis(d, "All")
+	});
+		  document.getElementById("Comedy").addEventListener('click', function(){
+		makeVis(d, "Comedy")
+	});
+		  document.getElementById("Action").addEventListener('click', function(){
+		makeVis(d, "Action")
+	});
+		  document.getElementById("Action").addEventListener('click', function(){
+		makeVis(d, "Action")
+	});
+		  document.getElementById("Drama").addEventListener('click', function(){
+		makeVis(d, "Drama")
+	});
+		  document.getElementById("Family").addEventListener('click', function(){
+		makeVis(d, "Family")
+	});
 	      
     		};
         </script>
