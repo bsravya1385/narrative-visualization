@@ -155,8 +155,11 @@ function filterdata(data, location, dim){
                       .style("opacity", 0); // don't care about position!
               };
               // Add data points!
+		  if 
               canvas.selectAll(".dot")
-                .data(data.filter(function(d){if (category == "All") {return d;}else (return d.genres_name == category;}))
+                .data(data.filter(function(d){if (category == "All") {
+		      return d;
+	              }else {return d.genres_name == category;}}))
 		//.data(data)
                 .enter()
                 .append("circle")
